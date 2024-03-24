@@ -13,7 +13,11 @@ public class MatrixMain  {
         int cols = 5;
         Matrix a = new Matrix(RandomArrayToFileGenerator.generateRandomArray(cols*cols), cols);
         Matrix b = new Matrix(RandomArrayToFileGenerator.generateRandomArray(cols*cols), cols);
+        System.out.println("A:\n" + a);
+        System.out.println("B:\n" + b);
 
-        a.multiply(b);
+        Matrix c = a.multiply(b);
+
+        System.out.println("Result:\n" + c);
     }
 }

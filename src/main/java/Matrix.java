@@ -32,7 +32,7 @@ public class Matrix implements Serializable {
         PCJ.executionBuilder (MatrixMultiplicator.class)
                 .addNodes(new File("nodes.txt"))
                 .start();
-        return this;
+        return MatrixMultiplicator.resultC;
     }
 
     @Serial
@@ -58,9 +58,15 @@ public class Matrix implements Serializable {
 
     @Override
     public String toString() {
-        return "Matrix{" +
-                "array=" + Arrays.toString(array) +
-                ", cols=" + cols +
-                '}';
+        StringBuilder out = new StringBuilder();
+        for (int i = 0; i < getCols() * getCols(); i++) {
+            out.append(array[i]).append((i % cols == cols - 1) ? "\n" : " ");
+
+        }
+        return out.toString();
+//        return "Matrix{" +
+//                "array=" + Arrays.toString(array) +
+//                ", cols=" + cols +
+//                '}';
     }
 }
