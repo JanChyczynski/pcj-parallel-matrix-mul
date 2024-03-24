@@ -16,8 +16,10 @@ public class MatrixMultiplicator implements StartPoint {
 
     @Override
     public void main() {
-        System.out.println("Start " + PCJ.myId());
-        int matrixSize = initA.getCols();
+        if (Parameters.DEBUG) {
+            System.out.println("Start " + PCJ.myId());
+        }
+            int matrixSize = initA.getCols();
         if (PCJ.myId() == 0) {
 //            System.out.println("A: " + initA.toString());
 //            System.out.println("B: " + initB.toString());

@@ -4,20 +4,24 @@ import java.io.IOException;
 public class MatrixMain  {
 
     public static void main(String[] args) throws IOException {
-//        Matrix a = new Matrix(new long[]{2, 1, 3, 7}, 2);
-//        Matrix b = new Matrix(new long[]{1, 0, 0, 1}, 2);
 
-//        Matrix a = new Matrix(new long[]{2, 1, 3, 7}, 2);
-//        Matrix b = new Matrix(new long[]{1, 1, 1, 1}, 2);
 
-        int cols = 5;
+        int cols = 1000;
         Matrix a = new Matrix(RandomArrayToFileGenerator.generateRandomArray(cols*cols), cols);
         Matrix b = new Matrix(RandomArrayToFileGenerator.generateRandomArray(cols*cols), cols);
-        System.out.println("A:\n" + a);
-        System.out.println("B:\n" + b);
+        if (Parameters.DEBUG) {
+            System.out.println("A:\n" + a);
+            System.out.println("B:\n" + b);
+        }
 
+        long startTime = System.nanoTime();
         Matrix c = a.multiply(b);
+        long endTime = System.nanoTime();
+
+        // Calculate elapsed time in milliseconds
+        long elapsedTimeInMillis = (endTime - startTime) / 1000000;
 
         System.out.println("Result:\n" + c);
+        System.out.println(elapsedTimeInMillis);
     }
 }
